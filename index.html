@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/judge.src.js"></script>
+    <meta charset="UTF-8">
+    <title>Hello Judge Sample</title>
+    <style>
+        .judge-error {
+            border-color: #ff1b0e;
+        }
+    </style>
+</head>
+<body>
+    <form id="newForm">
+        <input type="text" name="string" class="form1" data-judge-type="string" data-judge-required="yes"/>
+        <input type="text" name="number" class="form1" data-judge-type="integer" data-judge-required="yes"/>
+        <input type="text" name="float" class="form1" data-judge-type="float" data-judge-required="yes"/>
+    </form>
+    <button id="check" type="button">Check</button>
+<script>
+    $(
+        function () {
+            $('#check').click(
+                function () {
+                    var re = judgeVerify('form1');
+                    if(! re) console.log('Form validation failed');
+                    else console.log('form validation success');
+                }
+            );
+        }
+    );
+</script>
+</body>
+</html>
